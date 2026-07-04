@@ -1,6 +1,6 @@
 # InspectAI: Automated Steel Surface Defect Detection using YOLOv8
 
-InspectAI trains a YOLOv8 computer vision model to inspect product or component images and flag visible defects such as scratches, dents, cracks, discoloration, missing parts, or contamination.
+InspectAI is an AI-powered steel surface defect detection system that uses YOLOv8 to identify and localize defects such as crazing, inclusion, patches, pitted surface, rolled-in scale, and scratches.
 
 ## Features
 
@@ -69,16 +69,57 @@ dataset/labels/val/image_002.txt
 
 ## Defect Classes
 
-The default classes in `data.yaml` are:
-
-- `scratch`
-- `dent`
-- `crack`
-- `discoloration`
-- `missing_part`
-- `contamination`
+- Crazing
+- Inclusion
+- Patches
+- Pitted Surface
+- Rolled-in Scale
+- Scratches
 
 Change these names to match your dataset before training.
+
+## Model Performance
+
+| Metric | Value |
+|--------|-------|
+| Precision | 65.7% |
+| Recall | 77.5% |
+| mAP@50 | 77.8% |
+| mAP@50-95 | 44.5% |
+
+### Per-Class mAP50
+
+| Class | mAP50 |
+|-------|-------|
+| Crazing | 46.1% |
+| Inclusion | 87.7% |
+| Patches | 94.7% |
+| Pitted Surface | 78.1% |
+| Rolled-in Scale | 64.9% |
+| Scratches | 95.3% |
+
+## Dataset
+
+This project uses the NEU Surface Defect Dataset (NEU-DET), a benchmark dataset for steel surface defect detection.
+
+Dataset classes:
+- Crazing
+- Inclusion
+- Patches
+- Pitted Surface
+- Rolled-in Scale
+- Scratches
+
+### Per-Class mAP50
+
+| Class | mAP50 |
+|-------|-------|
+| Crazing | 46.1% |
+| Inclusion | 87.7% |
+| Patches | 94.7% |
+| Pitted Surface | 78.1% |
+| Rolled-in Scale | 64.9% |
+| Scratches | 95.3% |
 
 ## Setup
 
@@ -137,6 +178,12 @@ Because Windows said `streamlit` is not on PATH, use this command:
 ```bash
 python -m streamlit run app.py
 ```
+
+## Demo
+
+The Streamlit application allows users to upload steel surface images and receive defect predictions with bounding box visualization.
+
+![InspectAI Demo](demo_screenshot.png)
 
 Or use the included launcher:
 
