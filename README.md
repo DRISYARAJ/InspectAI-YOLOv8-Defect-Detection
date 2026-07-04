@@ -1,4 +1,4 @@
-# InspectAI
+# InspectAI: Automated Steel Surface Defect Detection using YOLOv8
 
 InspectAI trains a YOLOv8 computer vision model to inspect product or component images and flag visible defects such as scratches, dents, cracks, discoloration, missing parts, or contamination.
 
